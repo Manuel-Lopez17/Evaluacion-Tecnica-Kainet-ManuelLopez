@@ -1,1 +1,24 @@
-<p>page-one works!</p>
+<div class="container">
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre de la empresa</th>
+        <th>Nombre del producto</th>
+        <th>Fecha disponibilidad</th>
+        <th>Precio</th>
+        <th>Moneda</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(product of products; track product ){
+      <tr>
+        <td>{{ product.companyName }}</td>
+        <td>{{ product.productName }}</td>
+        <td>{{ product.availabilityDate }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.currency }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

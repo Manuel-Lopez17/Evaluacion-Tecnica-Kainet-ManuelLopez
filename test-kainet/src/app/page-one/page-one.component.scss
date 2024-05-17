@@ -1,0 +1,21 @@
+.container{
+    display: flex;
+    width: 100%;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+    th {
+      background-color: lightblue;
+      color: #1e1e1e;
+      text-align: left;
+    }
+}
+
