@@ -1,0 +1,43 @@
+<main>
+  <div class="content">
+    <div class="left-side" [ngClass]="{ expanded: expanded }">
+      @if(expanded){
+      <nav class="navItemsContainer">
+        <a
+          class="link"
+          routerLink="page-one"
+          (click)="toggleExpanded()"
+          routerLinkActive="activeLink"
+          >Page one</a
+        >
+        <a
+          class="link"
+          routerLink="page-two"
+          (click)="toggleExpanded()"
+          routerLinkActive="activeLink"
+          >Page two</a
+        >
+        <a
+          class="link"
+          routerLink="page-three"
+          (click)="toggleExpanded()"
+          routerLinkActive="activeLink"
+          >Page Three</a
+        >
+      </nav>
+      }
+      <div class="actions">
+        <div class="actionContainer" (click)="toggleExpanded()">
+          <i
+            class="material-icons expandSidebar"
+            [ngClass]="{ rotated: expanded }"
+            >chevron_left</i
+          >
+        </div>
+      </div>
+    </div>
+    <div class="right-side">
+      <router-outlet />
+    </div>
+  </div>
+</main>
