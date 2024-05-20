@@ -1,14 +1,15 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Posiciones } from '../page-one/interfaces/posiciones.interface';
+import { Posiciones } from '../../page-one/interfaces/posiciones.interface';
+import { environment } from '../../environments/environment';
 
 @Injectable({
     providedIn: 'root'
 })
 export class DataService {
 
-    private apiUrl = 'https://vercel-node-kainet.vercel.app';
+    private apiUrl = environment.API_URL;
 
     constructor(private http: HttpClient) { }
 

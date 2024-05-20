@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DataService } from '../services/data.service';
+import { DataService } from '../services/posiciones/data.service';
 import { Posicion, Posiciones } from './interfaces/posiciones.interface';
 import { AsyncPipe, DatePipe } from '@angular/common';
 import { Observable } from 'rxjs';

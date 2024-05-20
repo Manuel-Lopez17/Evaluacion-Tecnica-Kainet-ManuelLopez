@@ -1,0 +1,16 @@
+.container{
+    display:flex;
+    flex-direction: column;
+    padding: 1rem .5rem;
+    border: 1px solid lightblue;
+    border-radius: .2rem;
+    width: min-content;
+
+    .input{
+        min-height: 70px;
+    }
+
+    .sendButton{
+        margin-top: 20px;
+    }
+}
