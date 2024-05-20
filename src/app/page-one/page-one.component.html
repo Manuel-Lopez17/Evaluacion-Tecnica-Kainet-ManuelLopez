@@ -2,21 +2,23 @@
   <table>
     <thead>
       <tr>
-        <th>Nombre de la empresa</th>
-        <th>Nombre del producto</th>
-        <th>Fecha disponibilidad</th>
+        <th>ID de la empresa</th>
+        <th>ID del producto</th>
+        <th>Fecha entrega inicio</th>
         <th>Precio</th>
         <th>Moneda</th>
+        <th>Uso frecuente</th>
       </tr>
     </thead>
     <tbody>
-      @for(product of products; track product ){
+      @for(posicion of posiciones ; track posicion ){
       <tr>
-        <td>{{ product.companyName }}</td>
-        <td>{{ product.productName }}</td>
-        <td>{{ product.availabilityDate }}</td>
-        <td>{{ product.price }}</td>
-        <td>{{ product.currency }}</td>
+        <td>{{ posicion.idEmpresa }}</td>
+        <td>{{ posicion.idPrdoucto }}</td>
+        <td>{{ posicion.fechaEntregaInicio | date : "short" }}</td>
+        <td>{{ posicion.precio }}</td>
+        <td>{{ posicion.moneda }}</td>
+        <td>{{ posicion.Productos.usoFrecuente ? "si" : "no" }}</td>
       </tr>
       }
     </tbody>

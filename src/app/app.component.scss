@@ -12,7 +12,7 @@
         min-width: 3rem;
 
         &.expanded {
-            flex-basis: 20%;
+            flex-basis: 10%;
         }
 
         .navItemsContainer {
@@ -36,6 +36,7 @@
             .activeLink {
                 background-color: lightblue;
                 color: #1e1e1e;
+                font-weight: bold;
             }
         }
 
@@ -74,7 +75,7 @@
         min-width: 0;
 
         &.expanded {
-            flex-basis: 80%;
+            flex-basis: 90%;
         }
     }
 }

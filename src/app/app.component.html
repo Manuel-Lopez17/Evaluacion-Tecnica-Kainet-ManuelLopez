@@ -8,7 +8,7 @@
           routerLink="page-one"
           (click)="toggleExpanded()"
           routerLinkActive="activeLink"
-          >Page one</a
+          >Posiciones</a
         >
         <a
           class="link"
@@ -30,13 +30,13 @@
         <div class="actionContainer" (click)="toggleExpanded()">
           <i
             class="material-icons expandSidebar"
-            [ngClass]="{ rotated: expanded }"
+            [ngClass]="{ rotated: !expanded }"
             >chevron_left</i
           >
         </div>
       </div>
     </div>
-    <div class="right-side" [ngClass]="{'expanded': expanded}">
+    <div class="right-side" [ngClass]="{ expanded: expanded }">
       <router-outlet />
     </div>
   </div>

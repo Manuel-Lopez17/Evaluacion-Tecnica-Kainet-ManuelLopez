@@ -22,13 +22,7 @@ export class AppComponent {
     title: string = 'test-kainet';
     expanded: boolean = true;
 
-    constructor(private dataService: DataService) { }
-
-    ngOnInit() {
-        this.dataService.getTest().subscribe(res => {
-            console.log(res)
-        })
-    }
+    constructor() { }
 
     toggleExpanded() {
         this.expanded = !this.expanded
