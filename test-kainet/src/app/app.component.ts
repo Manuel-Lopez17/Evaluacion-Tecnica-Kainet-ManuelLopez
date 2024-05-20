@@ -25,6 +25,9 @@ export class AppComponent {
     constructor(private dataService: DataService) { }
 
     ngOnInit() {
+        this.dataService.getTest().subscribe(res => {
+            console.log(res)
+        })
     }
 
     toggleExpanded() {

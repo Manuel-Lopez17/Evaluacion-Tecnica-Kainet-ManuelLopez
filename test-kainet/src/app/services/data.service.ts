@@ -7,15 +7,16 @@ import { Observable } from 'rxjs';
 })
 export class DataService {
 
-    private apiUrl = 'http://localhost:3000/api/';
+    private apiUrl = 'https://vercel-node-kainet.vercel.app';
 
     constructor(private http: HttpClient) { }
 
     getData(): Observable<any[]> {
-        return this.http.get<any[]>(this.apiUrl + "data");
+        return this.http.get<any[]>(this.apiUrl + "/");
     }
 
     getTest(): Observable<any[]> {
-        return this.http.get<any[]>(this.apiUrl + "test")
+        return this.http.get<any[]>(this.apiUrl + "/test");
     }
+
 }
