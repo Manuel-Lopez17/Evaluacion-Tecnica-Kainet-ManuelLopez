@@ -11,6 +11,7 @@ import { UsuariosService } from '../../../services/usuarios/usuarios.service';
 })
 export class UserFormsComponent {
     contactForm!: FormGroup;
+    isOpen: boolean = false;
 
     constructor(
         private fb: FormBuilder,
@@ -30,7 +31,18 @@ export class UserFormsComponent {
     onSubmit() {
         console.log(this.contactForm.value);
         this.userService.postUsuario(this.contactForm.value)
-            .subscribe(res => console.log(res))
+            .subscribe(res => {
+                console.log(res);
+                if (res.status === 201) {
+                    this.contactForm.reset();
+                    this.toggleDialog();
+
+                }
+            })
+    }
+
+    toggleDialog() {
+        this.isOpen = !this.isOpen;
     }
 
 }

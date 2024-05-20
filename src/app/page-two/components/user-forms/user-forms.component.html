@@ -1,5 +1,8 @@
-<div class="container">
-  <h4>Crear usuario</h4>
+<dialog [open]="isOpen">
+  <header>
+    Crear usuario
+    <i class="close" (click)="toggleDialog()">x</i>
+  </header>
   <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
     <div class="input">
       <input
@@ -31,11 +34,15 @@
       }
     </div>
 
-    <input
-      class="sendButton"
-      type="submit"
-      value="Send"
-      [disabled]="contactForm.invalid"
-    />
+    <menu>
+      <input
+        class="sendButton"
+        type="submit"
+        value="Send"
+        [disabled]="contactForm.invalid"
+      />
+    </menu>
   </form>
-</div>
+</dialog>
+
+<button (click)="toggleDialog()">Crear usuario</button>

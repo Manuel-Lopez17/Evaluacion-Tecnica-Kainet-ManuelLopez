@@ -2,8 +2,8 @@
   <table>
     <thead>
       <tr>
-        <th>ID de la empresa</th>
-        <th>ID del producto</th>
+        <th>Empresa</th>
+        <th>Producto</th>
         <th>Fecha entrega inicio</th>
         <th>Precio</th>
         <th>Moneda</th>
@@ -13,12 +13,12 @@
     <tbody>
       @for(posicion of posiciones ; track posicion ){
       <tr>
-        <td>{{ posicion.idEmpresa }}</td>
-        <td>{{ posicion.idPrdoucto }}</td>
+        <td>{{ posicion.Empresa.razonSocial }}</td>
+        <td>{{ posicion.Producto.nombre }}</td>
         <td>{{ posicion.fechaEntregaInicio | date : "short" }}</td>
         <td>{{ posicion.precio }}</td>
         <td>{{ posicion.moneda }}</td>
-        <td>{{ posicion.Productos.usoFrecuente ? "si" : "no" }}</td>
+        <td>{{ posicion.Producto.usoFrecuente ? "si" : "no" }}</td>
       </tr>
       }
     </tbody>

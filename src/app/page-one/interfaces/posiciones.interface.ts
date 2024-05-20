@@ -6,15 +6,18 @@ export interface Posiciones {
 }
 
 export interface Posicion {
-    id: string
-    idEmpresa: string
-    idPrdoucto: string
     fechaEntregaInicio: string
     moneda: string
     precio: number
-    Productos: Productos
+    Producto: Producto
+    Empresa: Empresa
 }
 
-export interface Productos {
+export interface Producto {
+    nombre: string
     usoFrecuente: boolean
+}
+
+export interface Empresa {
+    razonSocial: string
 }
