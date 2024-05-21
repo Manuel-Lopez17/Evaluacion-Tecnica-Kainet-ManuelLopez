@@ -12,7 +12,7 @@
         min-width: 3rem;
 
         &.expanded {
-            flex-basis: 20%;
+            flex-basis: 10%;
         }
 
         .navItemsContainer {
@@ -36,6 +36,7 @@
             .activeLink {
                 background-color: lightblue;
                 color: #1e1e1e;
+                font-weight: bold;
             }
         }
 
@@ -74,7 +75,87 @@
         min-width: 0;
 
         &.expanded {
-            flex-basis: 80%;
+            flex-basis: 90%;
         }
     }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 15px;
+    /* Otros estilos específicos para tabletas y teléfonos grandes */
+  }
+
+  .content{
+    flex-direction: column;
+
+        .left-side {
+        flex-direction: column;
+        border-right: none;
+
+        &.expanded {
+            flex-basis: 10%;
+        }
+
+        .navItemsContainer {
+            display: flex;
+            flex-direction: row;
+            gap: .5rem;
+            padding: 1rem;
+            justify-content: center;
+
+            .link {
+                margin-left: 0;
+                padding: .5rem 1rem;
+                color: inherit;
+                text-overflow: ellipsis;
+                text-wrap: nowrap;
+                border-radius: .4rem;
+
+                &:hover {
+                    background-color: rgba(173, 216, 230, 0.4);
+                    text-decoration: none;
+                }
+            }
+
+            .activeLink {
+                background-color: lightblue;
+                color: #1e1e1e;
+                font-weight: bold;
+            }
+        }
+
+        .actions {
+            margin-top: unset;
+            padding-bottom: 2rem;
+            margin-left: 0;
+
+            .actionContainer {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: rgba(173, 216, 230, 0.4);
+
+                }
+
+                .expandSidebar {
+                    font-size: 2rem;
+                    transform: rotate(90deg);
+
+                    &.rotated {
+                        transform: rotate(270deg);
+                    }
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+    }
+  }
 }

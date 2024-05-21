@@ -1,0 +1,48 @@
+<dialog [open]="isOpen">
+  <header>
+    Crear usuario
+    <i class="material-icons" (click)="toggleDialog()">close</i>
+  </header>
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <div class="input">
+      <input
+        type="text"
+        name="nombre"
+        placeholder="Nombre Completo"
+        formControlName="nombre"
+      />
+      @if(contactForm.get('nombre')!.invalid &&
+      contactForm.get('nombre')!.touched){
+
+      <small>El nombre es requerido</small>
+      }
+    </div>
+    <div class="input">
+      <input
+        type="text"
+        name="email"
+        placeholder="Email"
+        formControlName="email"
+      />
+      @if(contactForm.get('email')!.invalid && contactForm.get('email')!.touched
+      && contactForm.get('email')!.errors?.['required']){
+      <small>El email es requerido</small>
+      } @if(contactForm.get('email')!.invalid &&
+      contactForm.get('email')!.touched &&
+      contactForm.get('email')!.errors?.['email']){
+      <small>El email no es válido</small>
+      }
+    </div>
+
+    <menu>
+      <input
+        class="sendButton"
+        type="submit"
+        value="Send"
+        [disabled]="contactForm.invalid"
+      />
+    </menu>
+  </form>
+</dialog>
+
+<button (click)="toggleDialog()">Crear usuario</button>

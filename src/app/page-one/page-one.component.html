@@ -2,23 +2,51 @@
   <table>
     <thead>
       <tr>
-        <th>Nombre de la empresa</th>
-        <th>Nombre del producto</th>
-        <th>Fecha disponibilidad</th>
+        <th>Empresa</th>
+        <th>Producto</th>
+        <th>Fecha entrega inicio</th>
         <th>Precio</th>
         <th>Moneda</th>
+        <th>Uso frecuente</th>
       </tr>
     </thead>
     <tbody>
-      @for(product of products; track product ){
+      @for(posicion of posiciones ; track posicion ){
       <tr>
-        <td>{{ product.companyName }}</td>
-        <td>{{ product.productName }}</td>
-        <td>{{ product.availabilityDate }}</td>
-        <td>{{ product.price }}</td>
-        <td>{{ product.currency }}</td>
+        <td>{{ posicion.Empresa.razonSocial }}</td>
+        <td>{{ posicion.Producto.nombre }}</td>
+        <td>{{ posicion.fechaEntregaInicio | date : "short" }}</td>
+        <td>{{ posicion.precio }}</td>
+        <td>{{ posicion.moneda }}</td>
+        <td>{{ posicion.Producto.usoFrecuente ? "si" : "no" }}</td>
       </tr>
       }
     </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="6">
+          <div class="pagination">
+            <button (click)="previousPage()" [disabled]="currentPage === 1">
+              <i class="material-icons">chevron_left</i>
+            </button>
+            @for(page of [].constructor(totalPages); track page){
+            <button
+              (click)="changePage($index + 1)"
+              [class.active]="currentPage === $index + 1"
+            >
+              {{ $index + 1 }}
+            </button>
+            }
+
+            <button
+              (click)="nextPage()"
+              [disabled]="currentPage === totalPages"
+            >
+              <i class="material-icons">chevron_right</i>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
   </table>
 </div>

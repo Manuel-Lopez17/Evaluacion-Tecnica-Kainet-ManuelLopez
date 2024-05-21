@@ -1,1 +1,21 @@
-<p>page-two works!</p>
+<div class="container">
+  <app-user-forms (usuario)="updateTableFromPost($event)"></app-user-forms>
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Mail</th>
+        <th>Habilitado</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(user of users ; track user ){
+      <tr>
+        <td>{{ user.nombre }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.habilitado ? "si" : "no" }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

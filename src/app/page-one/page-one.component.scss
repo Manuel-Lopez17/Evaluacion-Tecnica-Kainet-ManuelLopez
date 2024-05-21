@@ -1,21 +1,51 @@
 .container{
     display: flex;
     width: 100%;
+    overflow-x: auto;
 
     table {
       width: 100%;
       border-collapse: collapse;
+      min-width: 60rem;
+
+        /* th,
+        td {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        } */
+
+        tfoot{
+            display: flex;
+        }
     }
+
+
     
-    th, td {
-      border: 1px solid #ddd;
-      padding: 8px;
-    }
-    
-    th {
-      background-color: lightblue;
-      color: #1e1e1e;
-      text-align: left;
-    }
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination button {
+  margin: 0 2px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background-color: lightblue;
+  color: #1e1e1e;
+  border: none;
+}
+
+.pagination button[disabled] {
+  cursor: not-allowed;
+}
+.pagination button i {
+    font-size: .9rem;
+}
 }
 
