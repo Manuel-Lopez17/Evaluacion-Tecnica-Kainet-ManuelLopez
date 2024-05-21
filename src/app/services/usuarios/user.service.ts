@@ -20,7 +20,6 @@ export class UserService {
     }
 
     postUsuario(body: PostUsuario) {
-        console.log(body);
         return this.http.post<User>(this.apiUrl + '/usuarios', body, { observe: 'response' })
     }
 }
