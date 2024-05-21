@@ -33,10 +33,8 @@ export class UserFormsComponent {
     }
 
     onSubmit() {
-        console.log(this.contactForm.value);
         this.userService.postUsuario(this.contactForm.value)
             .subscribe(res => {
-                console.log(res);
                 if (res.status === 201) {
                     this.contactForm.reset();
                     this.toggleDialog();
