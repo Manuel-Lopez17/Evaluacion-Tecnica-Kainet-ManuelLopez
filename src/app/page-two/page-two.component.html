@@ -1,15 +1,11 @@
 <div class="container">
+  <app-user-forms (usuario)="updateTableFromPost($event)"></app-user-forms>
   <table>
     <thead>
       <tr>
         <th>Nombre</th>
         <th>Mail</th>
         <th>Habilitado</th>
-        <th>
-          <app-user-forms
-            (usuario)="updateTableFromPost($event)"
-          ></app-user-forms>
-        </th>
       </tr>
     </thead>
     <tbody>
@@ -18,7 +14,6 @@
         <td>{{ user.nombre }}</td>
         <td>{{ user.email }}</td>
         <td>{{ user.habilitado ? "si" : "no" }}</td>
-        <td></td>
       </tr>
       }
     </tbody>

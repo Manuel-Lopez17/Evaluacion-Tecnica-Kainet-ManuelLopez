@@ -19,14 +19,12 @@ export class PageTwoComponent {
     ngOnInit(): void {
         this.userService.getUsuario().subscribe(
             res => {
-                console.log(res);
                 this.users = res.map(u => u)
             }
         )
 
     }
     updateTableFromPost(user: any) {
-        console.log(user[0])
         this.users.push(user[0])
     }
 }
