@@ -1,23 +1,22 @@
-
-dialog{
-    min-width: 200px
+dialog {
+  min-width: 200px;
 }
 
-header{
-    display: flex;
-    justify-content: space-between;
+header {
+  display: flex;
+  justify-content: space-between;
 
-    .close{
-        font-weight: bold;
-        cursor: pointer;
-        margin-right: .5rem;
-    }
+  .close {
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 0.5rem;
+  }
 }
 
-.input{
-    min-height: 70px;
+.input {
+  min-height: 70px;
 }
 
-.sendButton{
-    margin-top: 20px;
+.sendButton {
+  margin-top: 20px;
 }

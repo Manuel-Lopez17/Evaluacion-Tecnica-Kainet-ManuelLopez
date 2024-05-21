@@ -1,30 +1,29 @@
-import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { DataService } from './services/posiciones/data.service';
-import { HttpClientModule } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core'
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router'
+import { HttpClientModule } from '@angular/common/http'
+import { CommonModule } from '@angular/common'
 
 @Component({
-    selector: 'app-root',
-    standalone: true,
-    imports: [
-        RouterOutlet,
-        HttpClientModule,
-        RouterOutlet,
-        RouterLink,
-        RouterLinkActive,
-        CommonModule
-    ],
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.scss'
+  selector: 'app-root',
+  standalone: true,
+  imports: [
+    RouterOutlet,
+    HttpClientModule,
+    RouterOutlet,
+    RouterLink,
+    RouterLinkActive,
+    CommonModule,
+  ],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
-    title: string = 'test-kainet';
-    expanded: boolean = true;
+  title: string = 'test-kainet'
+  expanded: boolean = true
 
-    constructor() { }
+  constructor() {}
 
-    toggleExpanded() {
-        this.expanded = !this.expanded
-    }
+  toggleExpanded() {
+    this.expanded = !this.expanded
+  }
 }

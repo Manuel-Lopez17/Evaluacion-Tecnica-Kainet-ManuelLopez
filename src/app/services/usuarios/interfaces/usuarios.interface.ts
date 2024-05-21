@@ -1,5 +1,5 @@
 export interface PostUsuario {
-    nombre: string,
-    mail: string,
-    habilitado?: boolean
+  nombre: string
+  mail: string
+  habilitado?: boolean
 }

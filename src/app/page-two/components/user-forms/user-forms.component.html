@@ -11,10 +11,10 @@
         placeholder="Nombre Completo"
         formControlName="nombre"
       />
-      @if(contactForm.get('nombre')!.invalid &&
-      contactForm.get('nombre')!.touched){
-
-      <small>El nombre es requerido</small>
+      @if (
+        contactForm.get('nombre')!.invalid && contactForm.get('nombre')!.touched
+      ) {
+        <small>El nombre es requerido</small>
       }
     </div>
     <div class="input">
@@ -24,13 +24,19 @@
         placeholder="Email"
         formControlName="email"
       />
-      @if(contactForm.get('email')!.invalid && contactForm.get('email')!.touched
-      && contactForm.get('email')!.errors?.['required']){
-      <small>El email es requerido</small>
-      } @if(contactForm.get('email')!.invalid &&
-      contactForm.get('email')!.touched &&
-      contactForm.get('email')!.errors?.['email']){
-      <small>El email no es válido</small>
+      @if (
+        contactForm.get('email')!.invalid &&
+        contactForm.get('email')!.touched &&
+        contactForm.get('email')!.errors?.['required']
+      ) {
+        <small>El email es requerido</small>
+      }
+      @if (
+        contactForm.get('email')!.invalid &&
+        contactForm.get('email')!.touched &&
+        contactForm.get('email')!.errors?.['email']
+      ) {
+        <small>El email no es válido</small>
       }
     </div>
 

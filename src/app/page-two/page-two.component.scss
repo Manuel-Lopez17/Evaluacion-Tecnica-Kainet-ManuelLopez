@@ -1,28 +1,26 @@
 .container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: calc(100dvh - 4rem);
+
+  table {
     width: 100%;
-    overflow-x: auto;
-    overflow-y: auto;
-    max-height: calc(100dvh - 4rem);
+    border-collapse: collapse;
+    min-width: 60rem;
 
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        min-width: 60rem;
-
-
-
-        th,
-        td {
-            height: 2rem;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+    th,
+    td {
+      height: 2rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
+  }
 
-    /* .tfoot{
+  /* .tfoot{
         width: 100%;
         display: flex;
         justify-content: flex-end;
@@ -33,6 +31,4 @@
             justify-content: flex-end;
         }
     } */
-
-
 }

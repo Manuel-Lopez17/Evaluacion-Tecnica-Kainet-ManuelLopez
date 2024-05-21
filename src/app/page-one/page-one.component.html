@@ -11,15 +11,15 @@
       </tr>
     </thead>
     <tbody>
-      @for(posicion of posiciones ; track posicion ){
-      <tr>
-        <td>{{ posicion.Empresa.razonSocial }}</td>
-        <td>{{ posicion.Producto.nombre }}</td>
-        <td>{{ posicion.fechaEntregaInicio | date : "short" }}</td>
-        <td>{{ posicion.precio }}</td>
-        <td>{{ posicion.moneda }}</td>
-        <td>{{ posicion.Producto.usoFrecuente ? "si" : "no" }}</td>
-      </tr>
+      @for (posicion of posiciones; track posicion) {
+        <tr>
+          <td>{{ posicion.Empresa.razonSocial }}</td>
+          <td>{{ posicion.Producto.nombre }}</td>
+          <td>{{ posicion.fechaEntregaInicio | date: 'short' }}</td>
+          <td>{{ posicion.precio }}</td>
+          <td>{{ posicion.moneda }}</td>
+          <td>{{ posicion.Producto.usoFrecuente ? 'si' : 'no' }}</td>
+        </tr>
       }
     </tbody>
     <tfoot>
@@ -29,13 +29,13 @@
             <button (click)="previousPage()" [disabled]="currentPage === 1">
               <i class="material-icons">chevron_left</i>
             </button>
-            @for(page of [].constructor(totalPages); track page){
-            <button
-              (click)="changePage($index + 1)"
-              [class.active]="currentPage === $index + 1"
-            >
-              {{ $index + 1 }}
-            </button>
+            @for (page of [].constructor(totalPages); track page) {
+              <button
+                (click)="changePage($index + 1)"
+                [class.active]="currentPage === $index + 1"
+              >
+                {{ $index + 1 }}
+              </button>
             }
 
             <button
