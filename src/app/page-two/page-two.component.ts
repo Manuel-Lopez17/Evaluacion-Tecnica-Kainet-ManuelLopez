@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { UsuariosService } from '../services/usuarios/usuarios.service';
+import { UserService } from '../services/usuarios/user.service';
 import { UserFormsComponent } from './components/user-forms/user-forms.component';
+import { User } from './interfaces/usuario.interface';
 
 @Component({
     selector: 'app-page-two',
@@ -11,5 +12,21 @@ import { UserFormsComponent } from './components/user-forms/user-forms.component
 })
 export class PageTwoComponent {
 
+    users: User[] = []
 
+    constructor(private userService: UserService) { }
+
+    ngOnInit(): void {
+        this.userService.getUsuario().subscribe(
+            res => {
+                console.log(res);
+                this.users = res.map(u => u)
+            }
+        )
+
+    }
+    updateTableFromPost(user: any) {
+        console.log(user[0])
+        this.users.push(user[0])
+    }
 }

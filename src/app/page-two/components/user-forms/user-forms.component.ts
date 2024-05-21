@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { UsuariosService } from '../../../services/usuarios/usuarios.service';
+import { UserService } from '../../../services/usuarios/user.service';
+import { User } from '../../interfaces/usuario.interface';
 
 @Component({
     selector: 'app-user-forms',
@@ -10,12 +11,15 @@ import { UsuariosService } from '../../../services/usuarios/usuarios.service';
     styleUrl: './user-forms.component.scss'
 })
 export class UserFormsComponent {
+
+    @Output() usuario: EventEmitter<User> = new EventEmitter();
+
     contactForm!: FormGroup;
     isOpen: boolean = false;
 
     constructor(
         private fb: FormBuilder,
-        private userService: UsuariosService
+        private userService: UserService
     ) {
         this.createContactForm();
     }
@@ -36,7 +40,7 @@ export class UserFormsComponent {
                 if (res.status === 201) {
                     this.contactForm.reset();
                     this.toggleDialog();
-
+                    this.usuario.emit(res.body!)
                 }
             })
     }
