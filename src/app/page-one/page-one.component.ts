@@ -13,7 +13,7 @@ import { AsyncPipe, DatePipe } from '@angular/common';
 export class PageOneComponent {
     posiciones: Posicion[] = [];
     paginatedData: any[] = [];
-    pageSize: number = 10;
+    pageSize: number = 3;
     currentPage: number = 1;
     order: "desc" | "asc" = "desc";
     totalPages!: number;
