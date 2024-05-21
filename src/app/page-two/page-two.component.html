@@ -9,11 +9,11 @@
       </tr>
     </thead>
     <tbody>
-      @for (user of users; track user) {
+      @for (user of users; track user.id) {
         <tr>
           <td>{{ user.nombre }}</td>
           <td>{{ user.email }}</td>
-          <td>{{ user.habilitado ? 'si' : 'no' }}</td>
+          <td>{{ user.habilitado ? 'Si' : 'No' }}</td>
         </tr>
       }
     </tbody>

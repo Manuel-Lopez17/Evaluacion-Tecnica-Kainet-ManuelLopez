@@ -11,7 +11,8 @@
       </tr>
     </thead>
     <tbody>
-      @for (posicion of posiciones; track posicion) {
+      <!-- Faltaria el id para hacer bien el track -->
+      @for (posicion of posiciones; track posicion.id) {
         <tr>
           <td>{{ posicion.Empresa.razonSocial }}</td>
           <td>{{ posicion.Producto.nombre }}</td>

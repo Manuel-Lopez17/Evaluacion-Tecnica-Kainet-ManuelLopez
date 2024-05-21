@@ -6,6 +6,7 @@ export interface Posiciones {
 }
 
 export interface Posicion {
+  id: string
   fechaEntregaInicio: string
   moneda: string
   precio: number
