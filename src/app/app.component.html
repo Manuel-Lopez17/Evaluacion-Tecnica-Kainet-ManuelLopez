@@ -1,6 +1,15 @@
 <main>
   <div class="content">
     <div class="left-side" [ngClass]="{ expanded: expanded }">
+      <div class="actions">
+        <div class="actionContainer" (click)="toggleExpanded()">
+          <i
+            class="material-icons expandSidebar"
+            [ngClass]="{ rotated: !expanded }"
+            >chevron_left</i
+          >
+        </div>
+      </div>
       @if (expanded) {
         <nav class="navItemsContainer">
           <a
@@ -26,15 +35,6 @@
           >
         </nav>
       }
-      <div class="actions">
-        <div class="actionContainer" (click)="toggleExpanded()">
-          <i
-            class="material-icons expandSidebar"
-            [ngClass]="{ rotated: !expanded }"
-            >chevron_left</i
-          >
-        </div>
-      </div>
     </div>
     <div class="right-side" [ngClass]="{ expanded: expanded }">
       <router-outlet />
