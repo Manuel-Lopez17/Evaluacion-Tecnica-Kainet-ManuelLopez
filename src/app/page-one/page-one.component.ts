@@ -12,7 +12,6 @@ import { AsyncPipe, DatePipe } from '@angular/common'
 })
 export class PageOneComponent {
   posiciones: Posicion[] = []
-  paginatedData: any[] = []
   pageSize: number = 5
   currentPage: number = 1
   order: 'desc' | 'asc' = 'desc'

@@ -12,7 +12,7 @@
       </tr>
     </thead>
     <tbody>
-      @if (users.length > 0) {
+      @defer {
         @for (user of users; track user.id) {
           <tr>
             <td>{{ user.nombre }}</td>
@@ -20,9 +20,17 @@
             <td>{{ user.habilitado ? 'Si' : 'No' }}</td>
           </tr>
         }
-      } @else {
+      } @placeholder {
         <tr>
           <td colspan="3">Cargando</td>
+        </tr>
+      } @loading {
+        <tr>
+          <td colspan="3">Cargando</td>
+        </tr>
+      } @error {
+        <tr>
+          <td colspan="3">Ups! ocurrió un error</td>
         </tr>
       }
     </tbody>

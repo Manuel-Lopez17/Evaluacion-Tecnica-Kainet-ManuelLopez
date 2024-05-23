@@ -19,7 +19,7 @@
       </tr>
     </thead>
     <tbody>
-      @if (posiciones.length > 0) {
+      @defer {
         @for (posicion of posiciones; track posicion.id) {
           <tr>
             <td>{{ posicion.Empresa.razonSocial }}</td>
@@ -30,9 +30,17 @@
             <td>{{ posicion.Producto.usoFrecuente ? 'Si' : 'No' }}</td>
           </tr>
         }
-      } @else {
+      } @placeholder {
         <tr>
           <td colspan="6">Cargando</td>
+        </tr>
+      } @loading {
+        <tr>
+          <td colspan="6">Cargando</td>
+        </tr>
+      } @error {
+        <tr>
+          <td colspan="6">Ups! ocurrió un error!</td>
         </tr>
       }
     </tbody>
