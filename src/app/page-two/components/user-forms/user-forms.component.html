@@ -1,7 +1,7 @@
 <dialog [open]="isOpen">
   <header>
     Crear usuario
-    <i class="material-icons" (click)="toggleDialog()">close</i>
+    <i class="material-icons close" (click)="toggleDialog()">close</i>
   </header>
   <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
     <div class="input">
