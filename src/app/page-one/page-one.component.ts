@@ -65,6 +65,7 @@ export class PageOneComponent {
 
   onSelectedNumberOfElemet(event: any) {
     this.pageSize = Number(event.value)
+    this.currentPage = 1
     this.getData()
   }
 }
