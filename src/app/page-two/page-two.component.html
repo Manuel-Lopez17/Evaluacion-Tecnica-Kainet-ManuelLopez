@@ -12,11 +12,17 @@
       </tr>
     </thead>
     <tbody>
-      @for (user of users; track user.id) {
+      @if (users.length > 0) {
+        @for (user of users; track user.id) {
+          <tr>
+            <td>{{ user.nombre }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.habilitado ? 'Si' : 'No' }}</td>
+          </tr>
+        }
+      } @else {
         <tr>
-          <td>{{ user.nombre }}</td>
-          <td>{{ user.email }}</td>
-          <td>{{ user.habilitado ? 'Si' : 'No' }}</td>
+          <td colspan="3">Cargando</td>
         </tr>
       }
     </tbody>

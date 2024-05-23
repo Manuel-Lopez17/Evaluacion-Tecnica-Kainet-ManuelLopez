@@ -19,57 +19,65 @@
       </tr>
     </thead>
     <tbody>
-      @for (posicion of posiciones; track posicion.id) {
+      @if (posiciones.length > 0) {
+        @for (posicion of posiciones; track posicion.id) {
+          <tr>
+            <td>{{ posicion.Empresa.razonSocial }}</td>
+            <td>{{ posicion.Producto.nombre }}</td>
+            <td>{{ posicion.fechaEntregaInicio | date: 'short' }}</td>
+            <td>{{ posicion.precio }}</td>
+            <td>{{ posicion.moneda }}</td>
+            <td>{{ posicion.Producto.usoFrecuente ? 'Si' : 'No' }}</td>
+          </tr>
+        }
+      } @else {
         <tr>
-          <td>{{ posicion.Empresa.razonSocial }}</td>
-          <td>{{ posicion.Producto.nombre }}</td>
-          <td>{{ posicion.fechaEntregaInicio | date: 'short' }}</td>
-          <td>{{ posicion.precio }}</td>
-          <td>{{ posicion.moneda }}</td>
-          <td>{{ posicion.Producto.usoFrecuente ? 'Si' : 'No' }}</td>
+          <td colspan="6">Cargando</td>
         </tr>
       }
     </tbody>
     <tfoot>
-      <tr>
-        <td colspan="3">
-          <div class="pagination">
-            <button (click)="previousPage()" [disabled]="currentPage === 1">
-              <i class="material-icons">chevron_left</i>
-            </button>
-            @for (page of [].constructor(totalPages); track page) {
-              <button
-                (click)="changePage($index + 1)"
-                [class.active]="currentPage === $index + 1"
-              >
-                {{ $index + 1 }}
+      @if (posiciones.length > 0) {
+        <tr>
+          <td colspan="3">
+            <div class="pagination">
+              <button (click)="previousPage()" [disabled]="currentPage === 1">
+                <i class="material-icons">chevron_left</i>
               </button>
-            }
+              @for (page of [].constructor(totalPages); track page) {
+                <button
+                  (click)="changePage($index + 1)"
+                  [class.active]="currentPage === $index + 1"
+                >
+                  {{ $index + 1 }}
+                </button>
+              }
 
-            <button
-              (click)="nextPage()"
-              [disabled]="currentPage === totalPages"
+              <button
+                (click)="nextPage()"
+                [disabled]="currentPage === totalPages"
+              >
+                <i class="material-icons">chevron_right</i>
+              </button>
+            </div>
+          </td>
+          <td colspan="3">
+            <div
+              class="numberOfElementsSelector"
+              (change)="onSelectedNumberOfElemet($event.target)"
             >
-              <i class="material-icons">chevron_right</i>
-            </button>
-          </div>
-        </td>
-        <td colspan="3">
-          <div
-            class="numberOfElementsSelector"
-            (change)="onSelectedNumberOfElemet($event.target)"
-          >
-            <span>Elementos por pagina:</span>
-            <select>
-              <option value="1">1</option>
-              <option value="3">3</option>
-              <option value="5" selected>5</option>
-              <option value="10">10</option>
-              <option value="15">15</option>
-            </select>
-          </div>
-        </td>
-      </tr>
+              <span>Elementos por pagina:</span>
+              <select>
+                <option value="1">1</option>
+                <option value="3">3</option>
+                <option value="5" selected>5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+              </select>
+            </div>
+          </td>
+        </tr>
+      }
     </tfoot>
   </table>
 </div>
