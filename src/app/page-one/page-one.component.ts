@@ -21,12 +21,12 @@ export class PageOneComponent {
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
-    this.getData(this.currentPage, this.pageSize, this.order)
+    this.getData()
   }
 
-  getData(currentPage: number, pageSize: number, order: 'desc' | 'asc') {
+  getData() {
     this.dataService
-      .getPosiciones(currentPage, pageSize, order)
+      .getPosiciones(this.currentPage, this.pageSize, this.order)
       .subscribe((res: Posiciones) => {
         this.posiciones = res.posiciones.map((x) => x)
         this.totalPages = Math.ceil(res.total / this.pageSize)
@@ -36,21 +36,35 @@ export class PageOneComponent {
   changePage(page: number): void {
     if (page >= 1 && page <= this.totalPages) {
       this.currentPage = page
-      this.getData(this.currentPage, this.pageSize, this.order)
+      this.getData()
     }
   }
 
   nextPage(): void {
     if (this.currentPage < this.totalPages) {
       this.currentPage++
-      this.getData(this.currentPage, this.pageSize, this.order)
+      this.getData()
     }
   }
 
   previousPage(): void {
     if (this.currentPage > 1) {
       this.currentPage--
-      this.getData(this.currentPage, this.pageSize, this.order)
+      this.getData()
     }
+  }
+
+  toggleOrder() {
+    if (this.order === 'asc') {
+      this.order = 'desc'
+    } else {
+      this.order = 'asc'
+    }
+    this.getData()
+  }
+
+  onSelectedNumberOfElemet(event: any) {
+    this.pageSize = Number(event.value)
+    this.getData()
   }
 }

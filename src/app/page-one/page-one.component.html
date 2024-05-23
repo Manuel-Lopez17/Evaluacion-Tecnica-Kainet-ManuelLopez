@@ -10,7 +10,12 @@
         <th>Fecha entrega inicio</th>
         <th>Precio</th>
         <th>Moneda</th>
-        <th>Uso frecuente</th>
+        <th>
+          Uso frecuente
+          <i (click)="toggleOrder()" class="material-icons"
+            >{{ this.order === 'asc' ? 'arrow_drop_down' : 'arrow_drop_up' }}
+          </i>
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -21,13 +26,13 @@
           <td>{{ posicion.fechaEntregaInicio | date: 'short' }}</td>
           <td>{{ posicion.precio }}</td>
           <td>{{ posicion.moneda }}</td>
-          <td>{{ posicion.Producto.usoFrecuente ? 'si' : 'no' }}</td>
+          <td>{{ posicion.Producto.usoFrecuente ? 'Si' : 'No' }}</td>
         </tr>
       }
     </tbody>
     <tfoot>
       <tr>
-        <td colspan="6">
+        <td colspan="3">
           <div class="pagination">
             <button (click)="previousPage()" [disabled]="currentPage === 1">
               <i class="material-icons">chevron_left</i>
@@ -47,6 +52,21 @@
             >
               <i class="material-icons">chevron_right</i>
             </button>
+          </div>
+        </td>
+        <td colspan="3">
+          <div
+            class="numberOfElementsSelector"
+            (change)="onSelectedNumberOfElemet($event.target)"
+          >
+            <span>Elementos por pagina:</span>
+            <select>
+              <option value="1">1</option>
+              <option value="3">3</option>
+              <option value="5" selected>5</option>
+              <option value="10">10</option>
+              <option value="15">15</option>
+            </select>
           </div>
         </td>
       </tr>

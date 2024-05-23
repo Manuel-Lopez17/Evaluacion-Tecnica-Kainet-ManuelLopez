@@ -5,12 +5,12 @@
   overflow: auto;
   max-height: calc(100dvh - 4rem);
 
-  div:first-of-type{
+  div:first-of-type {
     display: flex;
-    gap:2rem;
+    gap: 2rem;
 
-    h2{
-        margin:unset;
+    h2 {
+      margin: unset;
     }
   }
 
@@ -43,9 +43,8 @@
         display: none;
       }
 
-      -ms-overflow-style: none;  
-      scrollbar-width: none;  
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     }
   }
-  }
-
+}

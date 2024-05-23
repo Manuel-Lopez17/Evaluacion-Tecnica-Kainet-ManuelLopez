@@ -4,12 +4,12 @@
   width: 100%;
   overflow-x: auto;
 
-    &  > div{
+  & > div {
     display: flex;
-    gap:2rem;
+    gap: 2rem;
 
-    h2{
-        margin:unset;
+    h2 {
+      margin: unset;
     }
   }
 
@@ -29,6 +29,16 @@
       table-layout: fixed;
     }
 
+    th {
+      i {
+        font-size: 20px;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
     tbody {
       display: block;
       max-height: 80dvh;
@@ -38,8 +48,8 @@
         display: none;
       }
 
-      -ms-overflow-style: none;  
-      scrollbar-width: none;  
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     }
   }
 
@@ -67,6 +77,19 @@
       i {
         font-size: 0.9rem;
       }
+    }
+  }
+
+  .numberOfElementsSelector {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 0.4rem;
+    justify-content: flex-start;
+    align-items: center;
+
+    select {
+      padding: 4px 30px;
     }
   }
 }
